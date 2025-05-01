@@ -7,7 +7,7 @@ Simple command line utility to colorize strings based on delimiters contained wi
 [![version](https://img.shields.io/github/v/release/jamieweavis/colstr)](https://github.com/jamieweavis/colstr/releases)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jamieweavis/colstr/blob/main/LICENSE)
 
-> *pronounced "cole-ster"*
+> *pronounced "col-ster"*
 
 ## Installation
 
