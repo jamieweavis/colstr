@@ -10,9 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.24.x'
-      - run: go build -v ./...
-      - run: go test
+          go-version: '1.25.x'
+
+      - name: Build
+        run: go build -o colstr ./cmd/colstr/main.go

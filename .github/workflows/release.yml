@@ -11,17 +11,27 @@ jobs:
   release-macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.24.x'
-      - run: go build -v ./...
-      - run: tar -czf colstr-mac.tar.gz colstr
-      - run: shasum -a 256 colstr-mac.tar.gz
-      - uses: softprops/action-gh-release@v2
+          go-version: '1.25.x'
+
+      - name: Build
+        run: go build -o colstr ./cmd/colstr/main.go
+
+      - name: Package
+        run: tar -czf colstr-mac.tar.gz colstr
+
+      - name: Checksum
+        run: shasum -a 256 colstr-mac.tar.gz
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
           files: colstr-mac.tar.gz
           tag_name: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
