@@ -7,8 +7,6 @@ Simple command line utility to colorize strings based on delimiters contained wi
 [![version](https://img.shields.io/github/v/release/jamieweavis/colstr)](https://github.com/jamieweavis/colstr/releases)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jamieweavis/colstr/blob/main/LICENSE)
 
-> *pronounced "col-ster"*
-
 ## Installation
 
 Install via [Homebrew](https://brew.sh) (currently macOS only):
@@ -68,49 +66,43 @@ colstr
 
 <img src=".github/help.svg" alt="Help">
 
-## Building Locally
+## Development
 
-### Compiling
+### Prerequisites
 
-Build a binary:
+- [Go](https://github.com/golang/go) (>=1.24.x)
 
-```sh
-go build
-```
+### Getting Started
 
-Run the binary:
+Clone the repository:
 
 ```sh
-./colstr
+git clone https://github.com/jamieweavis/colstr.git
+
+cd colstr
 ```
 
-### Install
-
-Install the binary to your system:
-
-```sh
-mv colstr /usr/local/bin
+Run the application:
+```bash
+make run
 ```
 
-Uninstall the binary from your system:
-
-```sh
-rm /usr/local/bin/colstr
+Compile the application binary:
+```bash
+make build
 ```
 
-## Disclaimer
+Package the binary into a tar.gz archive:
+```bash
+make package
+```
 
-I'm not a Go developer, this is just for fun!
+Print the check-sum of the packaged application:
+```bash
+make checksum
+```
 
-## Built With
-
-- [Go](https://github.com/golang/go)
-
-## Related
-
-- [jamieweavis/homebrew-tap](https://github.com/jamieweavis/homebrew-tap) - Homebrew tap for my brew formulae
-- [Carbon](https://carbon.now.sh) - For terminal screenshots (with [Rosé Pine](https://github.com/rose-pine/rose-pine-theme) theme & [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) font)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Delete build artifacts:
+```bash
+make clean
+```

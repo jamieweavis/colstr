@@ -20,18 +20,18 @@ jobs:
           go-version: '1.25.x'
 
       - name: Build
-        run: go build -o colstr ./cmd/colstr/main.go
+        run: make build
 
       - name: Package
-        run: tar -czf colstr-mac.tar.gz colstr
+        run: make package
 
       - name: Checksum
-        run: shasum -a 256 colstr-mac.tar.gz
+        run: make check-sum
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: colstr-mac.tar.gz
+          files: ./bin/colstr-mac.tar.gz
           tag_name: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
